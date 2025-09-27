@@ -1,15 +1,13 @@
-$daysize: 100px;
-$numberofdays: 7;
-$gap: 1px;
-$calendar-padding: 10px;
-
 .calendar {
   display: flex;
   flex-wrap: wrap;
   gap: $gap;
   justify-content: flex-start;
-  max-width: calc($daysize * $numberofdays + $gap * ($numberofdays - 1));
-  padding: $calendar-padding;
+  width: calc(
+    $daysize * $numberofdays + $gap * ($numberofdays - 1) + #{$calendar-h-padding}
+  );
+  padding-left: $calendar-l-padding;
+  padding-right: $calendar-r-padding;
 }
 
 .calendar__day {
@@ -33,6 +31,9 @@ $calendar-padding: 10px;
   display: block;
   font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @for $n from 1 through 31 {
